@@ -1,80 +1,153 @@
 <!DOCTYPE html>
-
 <html>
 <head>
 <title>Women's Day Surprise</title>
+
 <style>
 body{
 font-family: Arial;
 text-align:center;
-background: linear-gradient(135deg,#ffd6e7,#ffe9f3);
-padding:40px;
+background:linear-gradient(135deg,#ffd6e7,#ffeef6);
+overflow:hidden;
+margin:0;
 }
-h1{color:#ff2e7a;}
+
+.page{
+display:none;
+padding:60px;
+}
+
+.active{
+display:block;
+}
 
 button{
-padding:15px 25px;
+padding:15px 28px;
 font-size:18px;
 border:none;
 background:#ff4da6;
 color:white;
 border-radius:12px;
 cursor:pointer;
-margin-top:20px;
+margin:15px;
 }
 
-.meme{display:none;margin-top:25px;}
+button:hover{
+background:#ff2e7a;
+}
 
 img{
 width:260px;
 border-radius:12px;
-box-shadow:0 10px 20px rgba(0,0,0,0.2);
+margin-top:20px;
 }
 
-.final{
-display:none;
-margin-top:30px;
-font-size:20px;
-font-weight:bold;
-} </style>
+h1{
+color:#ff2e7a;
+}
+
+.flower{
+position:absolute;
+font-size:24px;
+animation:fall 8s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-50px)}
+100%{transform:translateY(100vh)}
+}
+</style>
 
 </head>
 
 <body>
 
+<script>
+for(let i=0;i<20;i++){
+let f=document.createElement("div")
+f.innerHTML="🌸"
+f.className="flower"
+f.style.left=Math.random()*100+"%"
+f.style.animationDuration=(5+Math.random()*5)+"s"
+document.body.appendChild(f)
+}
+</script>
+
+<div id="p1" class="page active">
 <h1>Hey Pagliiii 🌸</h1>
-<p>A small Women's Day surprise for my Chaand 🌙</p>
+<p>I have a small Women's Day surprise for my Chaand 🌙</p>
+<button onclick="next('p2')">Start</button>
+</div>
 
-<button onclick="meme1()">Start</button>
+<div id="p2" class="page">
+<h1>First Question 😌</h1>
+<p>Are you ready?</p>
+<button onclick="next('p3')">Yes</button>
+<button onclick="moveBtn(this)">No</button>
+</div>
 
-<div id="m1" class="meme">
+<div id="p3" class="page">
+<h1>Warning ⚠️</h1>
+<p>This surprise is only for Pagliiii level people.</p>
+<button onclick="next('p4')">I am Pagliiii</button>
+</div>
+
+<div id="p4" class="page">
+<h1>When you get angry 😤</h1>
+
 <img src="https://ibb.co/jkqDdGb0.gif">
-<p>When Pagliiii gets angry and stops talking 😤</p>
-<button onclick="meme2()">Next Meme</button>
+
+<p>When Pagliiii gets angry and stops talking 😂</p>
+
+<button onclick="next('p5')">Next</button>
 </div>
 
-<div id="m2" class="meme">
-<img src="https://i.imgflip.com/1bij.jpg">
-<p>When she says "I'm not angry" but clearly she is 😂</p>
-<button onclick="finalMsg()">Final Surprise</button>
+<div id="p5" class="page">
+<h1>One more thing 😌</h1>
+<p>Don't click the pink button</p>
+<button onclick="next('p6')">Don't Click</button>
 </div>
 
-<div id="final" class="final">
-<p>Happy Women's Day Chaand 🌙</p>
-<p>You are strong, funny, caring and one of the most special people in my life.</p>
-<p>Stay the same amazing Pagliiii always 💖</p>
+<div id="p6" class="page">
+
+<h1>Happy Women's Day Chaand 🌙</h1>
+
+<p style="max-width:600px;margin:auto;font-size:18px">
+
+Happy Women’s Day, Pagliiiiiiiiiiii. Aaj ka din sirf celebrate karne ka nahi, balki un sab qualities ko appreciate karne ka hai jo aap jaise logon ko special banati hain. aapki kindness, aapka caring nature, aur aapki thodi si pagli wali personality sab milke aapko ek unique aur beautiful insaan banati hai. Kabhi kabhi aap gussa bhi hote ho aur baat nahi karte, lekin phir bhi aapka presence hamesha positive energy lekar aata. Mujhe bas itna kehna hai ki aap hamesha khush raho, apne dreams chase karti raho, aur wahi amazing insaan bani raho jo aap ho. Thank you for being such a wonderful part of my life. Once again, Happy Women’s Day Pagliiii, stay happy and keep shining like the Chaand you are.
+
+</p>
+
 </div>
 
 <script>
-function meme1(){
-document.getElementById("m1").style.display="block";
+
+function next(id){
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"))
+document.getElementById(id).classList.add("active")
+confetti()
 }
-function meme2(){
-document.getElementById("m2").style.display="block";
+
+function moveBtn(btn){
+btn.style.position="absolute"
+btn.style.left=Math.random()*80+"%"
+btn.style.top=Math.random()*80+"%"
 }
-function finalMsg(){
-document.getElementById("final").style.display="block";
+
+function confetti(){
+for(let i=0;i<40;i++){
+let c=document.createElement("div")
+c.innerHTML="🎉"
+c.style.position="fixed"
+c.style.left=Math.random()*100+"%"
+c.style.top="-20px"
+c.style.fontSize="20px"
+c.style.animation="fall 3s linear"
+document.body.appendChild(c)
+setTimeout(()=>c.remove(),3000)
 }
+}
+
 </script>
 
 </body>
