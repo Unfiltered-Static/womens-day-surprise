@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Women's Day Surprise</title>
+<style>
+body{
+font-family: Arial;
+text-align:center;
+background: linear-gradient(135deg,#ffd6e7,#ffe9f3);
+padding:40px;
+}
+h1{color:#ff2e7a;}
+
+button{
+padding:15px 25px;
+font-size:18px;
+border:none;
+background:#ff4da6;
+color:white;
+border-radius:12px;
+cursor:pointer;
+margin-top:20px;
+}
+
+.meme{display:none;margin-top:25px;}
+
+img{
+width:260px;
+border-radius:12px;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+.final{
+display:none;
+margin-top:30px;
+font-size:20px;
+font-weight:bold;
+} </style>
+
+</head>
+
+<body>
+
+<h1>Hey Pagliiii 🌸</h1>
+<p>A small Women's Day surprise for my Chaand 🌙</p>
+
+<button onclick="meme1()">Start</button>
+
+<div id="m1" class="meme">
+<img src="https://i.imgflip.com/4/30b1gx.jpg">
+<p>When Pagliiii gets angry and stops talking 😤</p>
+<button onclick="meme2()">Next Meme</button>
+</div>
+
+<div id="m2" class="meme">
+<img src="https://i.imgflip.com/1bij.jpg">
+<p>When she says "I'm not angry" but clearly she is 😂</p>
+<button onclick="finalMsg()">Final Surprise</button>
+</div>
+
+<div id="final" class="final">
+<p>Happy Women's Day Chaand 🌙</p>
+<p>You are strong, funny, caring and one of the most special people in my life.</p>
+<p>Stay the same amazing Pagliiii always 💖</p>
+</div>
+
+<script>
+function meme1(){
+document.getElementById("m1").style.display="block";
+}
+function meme2(){
+document.getElementById("m2").style.display="block";
+}
+function finalMsg(){
+document.getElementById("final").style.display="block";
+}
+</script>
+
+</body>
+</html>
